@@ -1,0 +1,70 @@
+# Bulb_on_off<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Light On Off Button</title>
+
+<style>
+    body{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        background:#222;
+        flex-direction:column;
+        font-family:Arial, Helvetica, sans-serif;
+    }
+
+    .bulb{
+        width:200px;
+        transition:0.4s;
+        filter: grayscale(100%);
+    }
+
+    .on{
+        filter: grayscale(0%) drop-shadow(0 0 30px yellow);
+    }
+
+    button{
+        margin-top:30px;
+        padding:12px 25px;
+        font-size:18px;
+        border:none;
+        border-radius:8px;
+        cursor:pointer;
+        background:gold;
+        font-weight:bold;
+        transition:0.3s;
+    }
+
+    button:hover{
+        background:orange;
+    }
+</style>
+</head>
+<body>
+
+<!-- Bulb Image -->
+<img id="bulb" class="bulb" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Incandescent_light_bulb.jpg">
+
+<!-- Button -->
+<button onclick="toggleLight()">Turn ON</button>
+
+<script>
+function toggleLight(){
+    let bulb = document.getElementById("bulb");
+    let button = document.querySelector("button");
+
+    bulb.classList.toggle("on");
+
+    if(bulb.classList.contains("on")){
+        button.innerText = "Turn OFF";
+    } else {
+        button.innerText = "Turn ON";
+    }
+}
+</script>
+
+</body>
+</html>
